@@ -1,0 +1,192 @@
+<!-- Validation failure messages -->
+
+<% if @review.errors.any? %>
+  <% @review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Review</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_review" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for venue_id -->
+          <div class="form-group">
+            <label for="venue_id" class="col-sm-2 control-label">
+              Venue
+            </label>
+            <div class="col-sm-10">
+              <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @review.venue_id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for general_rating -->
+          <div class="form-group">
+            <label for="general_rating" class="col-sm-2 control-label">
+              General rating
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="general_rating" name="general_rating" placeholder="General rating" class="form-control" value="<%= @review.general_rating %>">
+            </div>
+          </div>
+
+          <!-- Label and input for parking_lot -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="parking_lot">
+                  <input type="checkbox" id="parking_lot" name="parking_lot" value="1" <%= "checked" if @review.parking_lot %>>
+                  Parking lot
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for parking_street -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="parking_street">
+                  <input type="checkbox" id="parking_street" name="parking_street" value="1" <%= "checked" if @review.parking_street %>>
+                  Parking street
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for parking_valet -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="parking_valet">
+                  <input type="checkbox" id="parking_valet" name="parking_valet" value="1" <%= "checked" if @review.parking_valet %>>
+                  Parking valet
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for dish_name -->
+          <div class="form-group">
+            <label for="dish_name" class="col-sm-2 control-label">
+              Dish name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dish_name" name="dish_name" placeholder="Dish name" class="form-control" value="<%= @review.dish_name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dish_rating -->
+          <div class="form-group">
+            <label for="dish_rating" class="col-sm-2 control-label">
+              Dish rating
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dish_rating" name="dish_rating" placeholder="Dish rating" class="form-control" value="<%= @review.dish_rating %>">
+            </div>
+          </div>
+
+          <!-- Label and input for atmosphere_rating -->
+          <div class="form-group">
+            <label for="atmosphere_rating" class="col-sm-2 control-label">
+              Atmosphere rating
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="atmosphere_rating" name="atmosphere_rating" placeholder="Atmosphere rating" class="form-control" value="<%= @review.atmosphere_rating %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dish_comments -->
+          <div class="form-group">
+            <label for="dish_comments" class="col-sm-2 control-label">
+              Dish comments
+            </label>
+            <div class="col-sm-10">
+              <textarea id="dish_comments" name="dish_comments" placeholder="Dish comments" class="form-control" rows="3"><%= @review.dish_comments %></textarea>
+            </div>
+          </div>
+
+          <!-- Label and input for atmosphere_comments -->
+          <div class="form-group">
+            <label for="atmosphere_comments" class="col-sm-2 control-label">
+              Atmosphere comments
+            </label>
+            <div class="col-sm-10">
+              <textarea id="atmosphere_comments" name="atmosphere_comments" placeholder="Atmosphere comments" class="form-control" rows="3"><%= @review.atmosphere_comments %></textarea>
+            </div>
+          </div>
+
+          <!-- Label and input for sit_down -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="sit_down">
+                  <input type="checkbox" id="sit_down" name="sit_down" value="1" <%= "checked" if @review.sit_down %>>
+                  Sit down
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for average_per_person_price -->
+          <div class="form-group">
+            <label for="average_per_person_price" class="col-sm-2 control-label">
+              Average per person price
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="average_per_person_price" name="average_per_person_price" placeholder="Average per person price" class="form-control" value="<%= @review.average_per_person_price %>">
+            </div>
+          </div>
+
+          <!-- Label and input for general_comments -->
+          <div class="form-group">
+            <label for="general_comments" class="col-sm-2 control-label">
+              General comments
+            </label>
+            <div class="col-sm-10">
+              <textarea id="general_comments" name="general_comments" placeholder="General comments" class="form-control" rows="3"><%= @review.general_comments %></textarea>
+            </div>
+          </div>
+
+          <!-- Label and input for price_with_drinks -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="price_with_drinks">
+                  <input type="checkbox" id="price_with_drinks" name="price_with_drinks" value="1" <%= "checked" if @review.price_with_drinks %>>
+                  Price with drinks
+                </label>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Review
+              </button>
+              or
+              <a href="/reviews">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

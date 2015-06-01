@@ -1,0 +1,80 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @review.venue.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+
+              <dt>User</dt>
+              <dd><%= @review.user.username %></dd>
+
+              <dt>Address</dt>
+              <dd><%= @review.venue.address %></dd>
+
+              <dt>General rating</dt>
+              <dd><%= @review.general_rating %></dd>
+
+              <dt>Parking lot</dt>
+              <dd><%= @review.parking_lot %></dd>
+
+              <dt>Parking street</dt>
+              <dd><%= @review.parking_street %></dd>
+
+              <dt>Parking valet</dt>
+              <dd><%= @review.parking_valet %></dd>
+
+              <dt>Dish name</dt>
+              <dd><%= @review.dish_name %></dd>
+
+              <dt>Dish rating</dt>
+              <dd><%= @review.dish_rating %></dd>
+
+              <dt>Atmosphere rating</dt>
+              <dd><%= @review.atmosphere_rating %></dd>
+
+              <dt>Dish comments</dt>
+              <dd><%= @review.dish_comments %></dd>
+
+              <dt>Atmosphere comments</dt>
+              <dd><%= @review.atmosphere_comments %></dd>
+
+              <dt>Sit down</dt>
+              <dd><%= @review.sit_down %></dd>
+
+              <dt>Avg. price per person</dt>
+              <dd><%= @review.average_per_person_price %></dd>
+
+              <dt>Price with drinks</dt>
+              <dd><%= @review.price_with_drinks %></dd>
+
+              <dt>General comments</dt>
+              <dd><%= @review.general_comments %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/reviews" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
