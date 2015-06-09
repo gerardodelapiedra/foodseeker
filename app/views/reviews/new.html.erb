@@ -38,7 +38,8 @@
               General rating
             </label>
             <div class="col-sm-10">
-              <input type="text" id="general_rating" name="general_rating" placeholder="General rating" class="form-control" value="<%= @review.general_rating %>">
+
+              <%= select_tag :general_rating, options_for_select(1..5, @review.general_rating), :class => "form-control" %>
             </div>
           </div>
 
@@ -94,7 +95,7 @@
               Dish rating
             </label>
             <div class="col-sm-10">
-              <input type="text" id="dish_rating" name="dish_rating" placeholder="Dish rating" class="form-control" value="<%= @review.dish_rating %>">
+              <%= select_tag :dish_rating, options_for_select(1..5, @review.general_rating), :class => "form-control" %>
             </div>
           </div>
 
@@ -104,7 +105,8 @@
               Atmosphere rating
             </label>
             <div class="col-sm-10">
-              <input type="text" id="atmosphere_rating" name="atmosphere_rating" placeholder="Atmosphere rating" class="form-control" value="<%= @review.atmosphere_rating %>">
+              <%= select_tag :atmosphere_rating, options_for_select(1..5, @review.general_rating), :class => "form-control" %>
+
             </div>
           </div>
 
